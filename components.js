@@ -10,11 +10,20 @@ function bare ( title ) {
 	);
 }
 
+let bunches = [];
+(( i )=>{
+	while ( i-- > 0 ) {
+		bunches.push( i );
+	}
+})( 200 );
 let paths = [ '/', '/about', '/users', '/users/joe' ];
 export const App = ( { children, ...props } ) => (
 	<div { ...props }>
 		<h1>App</h1>
 		{ paths.map( path => <Link to={ path }>{ path }</Link> ) }
+		<ul>
+		{ bunches.map( i => <li>{ i }</li> ) }
+		</ul>
 		{ children }
 	</div>
 );
